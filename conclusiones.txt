@@ -1,0 +1,99 @@
+CONCLUSIONES – Proyecto Coffee Ranker
+Estudiante: Juan David Bonilla
+Materia: Conceptos Fundamentales de Programación
+Institución: Politécnico Grancolombiano
+Fecha: 13 de octubre 2026
+
+====================================================================
+1. LO APRENDIDO DURANTE EL DESARROLLO DEL PROYECTO
+====================================================================
+
+El desarrollo de Coffee Ranker permitió comprender en la práctica
+cómo se estructura un programa orientado a objetos de mediana
+complejidad. Se aprendió a separar responsabilidades en paquetes
+y clases con propósitos bien definidos: el modelo de datos, la
+lectura y escritura de archivos planos, la lógica de negocio y la
+interfaz gráfica.
+
+En cuanto al manejo de archivos, se adquirió experiencia real con
+lectura y escritura de archivos CSV y TXT usando BufferedReader y
+BufferedWriter con codificación UTF-8, incluyendo el tratamiento
+de líneas con errores de formato. La implementación de cuatro
+reglas de validación sobre los archivos de calificaciones reforzó
+el concepto de que los datos de entrada nunca deben darse por
+correctos sin verificación previa.
+
+Con respecto a las estructuras de datos, el proyecto consolidó el
+uso de HashMap para búsquedas eficientes por clave, ArrayList para
+colecciones ordenables y Set para controlar duplicados. La
+ordenación de resultados usando Comparator con criterios encadenados
+(promedio descendente, número de calificaciones descendente, nombre
+ascendente) fue un ejercicio valioso de manipulación de colecciones.
+
+En la parte visual, se aprendió a construir una interfaz gráfica
+con Java Swing: distribución de paneles con BorderLayout y
+CardLayout, tablas con DefaultTableModel, pestañas con JTabbedPane
+y diálogos de selección de carpeta con JFileChooser.
+
+====================================================================
+2. POSIBLES APLICACIONES EN LA VIDA PROFESIONAL
+====================================================================
+
+Las destrezas adquiridas tienen aplicación directa en múltiples
+contextos profesionales:
+
+- Procesamiento de datos estructurados: la capacidad de leer,
+  validar y transformar archivos planos es fundamental en
+  integraciones entre sistemas, migraciones de datos y procesos
+  de ETL (extracción, transformación y carga), actividades comunes
+  en cualquier empresa que maneje información.
+
+- Construcción de herramientas internas: muchas organizaciones
+  necesitan pequeñas aplicaciones de escritorio para automatizar
+  tareas repetitivas como generar reportes, consolidar información
+  de múltiples fuentes o clasificar registros. Los conocimientos
+  de Swing permiten construir ese tipo de herramientas sin depender
+  de frameworks externos.
+
+- Fundamentos para tecnologías avanzadas: la lógica de ranking
+  implementada (promedios, agrupaciones, ordenaciones) es la base
+  conceptual de sistemas de recomendación y análisis de datos que
+  se encuentran en plataformas comerciales, aplicaciones móviles
+  y servicios en la nube.
+
+- Calidad y validación de datos: el hábito de diseñar validaciones
+  explícitas y registrar los datos rechazados con su motivo es una
+  práctica profesional valorada en roles de desarrollo de software,
+  análisis de datos y aseguramiento de calidad.
+
+====================================================================
+3. DIFICULTADES PRESENTADAS DURANTE EL DESARROLLO
+====================================================================
+
+Una de las primeras dificultades fue definir con claridad la
+estructura de los archivos de entrada antes de comenzar a
+programar. Inicialmente los modelos de Finca y Cafe tenían campos
+adicionales (municipio y variedad) que no correspondían al diseño
+documentado, lo que obligó a realizar ajustes en varias clases al
+mismo tiempo.
+
+El manejo de codificación de caracteres presentó inconvenientes: los
+archivos CSV generados no mostraban correctamente las tildes y
+caracteres especiales al abrirlos en Excel, ya que el programa los
+escribía en UTF-8 sin marca de orden de bytes (BOM). La solución
+fue agregar el carácter BOM (﻿) al inicio de cada archivo de
+salida para que Excel reconociera la codificación correctamente.
+
+La interfaz gráfica con Swing resultó más compleja de lo esperado,
+especialmente el comportamiento de los botones con colores
+personalizados bajo distintos Look & Feel del sistema operativo.
+En Windows, el Look & Feel nativo ignora los colores de fondo
+definidos por código, lo que producía texto blanco sobre fondo
+gris ilegible. Fue necesario cambiar al Look & Feel Nimbus para
+obtener un resultado visual coherente.
+
+Por último, coordinar el estado de la aplicación entre los distintos
+paneles (saber si ya se importó la base antes de procesar el
+ranking, o si ya se procesó antes de permitir la descarga) requirió
+pensar con cuidado en el flujo de datos y en cuándo habilitar o
+deshabilitar cada control.
